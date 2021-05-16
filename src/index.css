@@ -1,3 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: antiquewhite;
+  font-family: 'Karla', sans-serif;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./assets/fonts/Karla-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./assets/fonts/Karla-Italic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./assets/fonts/Karla-Bold.ttf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url(./assets/fonts/Karla-BoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
 }

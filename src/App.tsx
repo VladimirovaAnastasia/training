@@ -1,9 +1,8 @@
 import React from 'react';
-import classNames from 'classnames';
-import styles from './App.module.scss';
+import HomePage from './pages/Home';
 
 const App = () => {
-  return <div className={classNames(styles.test, styles.header)}>Hey!</div>;
+  return <HomePage />;
 };
 
 export default App;

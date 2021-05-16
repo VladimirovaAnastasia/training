@@ -19,7 +19,7 @@ console.log(myHometask);
 
 interface MyArray<T> {
   [N: number]: T;
-  reduce(fn: (sum: T, current: T) => T, result: T): T;
+  reduce<U>(fn: (sum: U, current: T) => U, result: U): U;
 }
 const arr: MyArray<number> = [1, 2, 3, 4, 5];
 const result = arr.reduce(function (sum, current) {

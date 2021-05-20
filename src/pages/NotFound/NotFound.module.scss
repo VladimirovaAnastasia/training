@@ -1,0 +1,51 @@
+@import '../../variables';
+
+.root {
+  min-height: 100vh;
+  background: #d93e30;
+}
+
+.wrap {
+  width: 1248px;
+  margin: 0 auto;
+}
+
+.text {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 700px;
+  line-height: 818px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 4px;
+}
+
+.layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 120px;
+
+  img {
+    width: 690px;
+    height: 623px;
+    z-index: 3;
+  }
+}
+
+.subTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #000000;
+  margin-bottom: 60px;
+
+  span {
+    color: #f2f2f2;
+  }
+}

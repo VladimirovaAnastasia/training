@@ -1,48 +1,45 @@
 import React from 'react';
-import Header from '../../components/Header';
 import PokemonCard from '../../components/PokemonCard';
 import styles from './Pokedex.module.scss';
 import Layout from '../../components/Layout';
+import Heading from '../../components/Heading';
+import usePokemons from '../../hooks/usePokemons';
 
-import pokemons from './pokemons.json';
+const PokedexPage: React.FC = () => {
+  const { data, isLoading, isError } = usePokemons();
 
-interface IPokemon {
-  name_clean: string;
-  abilities: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-  };
-  types: string[];
-  img: string;
-  name: string;
-  base_experience: number;
-  height: number;
-  id: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
-}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-const PokedexPage: React.FC = () => (
-  <div className={styles.root}>
-    <Header />
-    <Layout className={styles.contentWrap}>
-      {pokemons.map((pokemon: IPokemon) => {
-        return (
-          <PokemonCard
-            key={pokemon.id}
-            name={pokemon.name}
-            stats={pokemon.stats}
-            types={pokemon.types}
-            img={pokemon.img}
-          />
-        );
-      })}
-    </Layout>
-  </div>
-);
+  if (isError) {
+    return <div>Something wrong...</div>;
+  }
+
+  return (
+    <div className={styles.root}>
+      <Layout className={styles.contentWrap}>
+        <Heading type="h3">
+          {' '}
+          {data.total} <b>Pokemons</b> for you to choose your favorite{' '}
+        </Heading>
+        <div className={styles.pokemons}>
+          {data?.pokemons &&
+            data.pokemons.map((pokemon: IPokemon) => {
+              return (
+                <PokemonCard
+                  key={pokemon.id}
+                  name={pokemon.name}
+                  stats={pokemon.stats}
+                  types={pokemon.types}
+                  img={pokemon.img}
+                />
+              );
+            })}
+        </div>
+      </Layout>
+    </div>
+  );
+};
 
 export default PokedexPage;

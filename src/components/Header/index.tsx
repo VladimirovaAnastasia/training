@@ -28,4 +28,4 @@ const Header = ({ className = null }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

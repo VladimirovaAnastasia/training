@@ -22,7 +22,7 @@ interface MyArray<T> {
   reduce<U>(fn: (sum: U, current: T) => U, result: U): U;
 }
 const arr: MyArray<number> = [1, 2, 3, 4, 5];
-const result = arr.reduce(function (sum, current) {
+const result = arr.reduce((sum, current) => {
   return sum + current;
 }, 0);
 console.log(result);

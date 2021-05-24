@@ -7,6 +7,14 @@
 
 .contentWrap {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 73px;
+}
+
+.pokemons {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 53px;
 }

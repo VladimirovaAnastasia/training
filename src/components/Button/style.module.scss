@@ -3,6 +3,8 @@
 .root {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 230px;
   text-align: center;
   border: none;
   box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
@@ -20,25 +22,25 @@
   }
 }
 
-.is100Width {
+.fullWidth {
   width: 100%;
 }
 
-.color-green {
+.green {
   background: #73d677;
 }
 
-.color-yellow {
+.yellow {
   background: #f2cb07;
 }
 
-.size-big {
+.big {
   height: 66px;
   font-size: 23px;
   line-height: 27px;
 }
 
-.size-small {
+.small {
   height: 60px;
   font-size: 16px;
   line-height: 20px;

@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react';
 import req from '../utils/request';
 
-interface IPokemonsData {
-  total?: number;
-  pokemons?: IPokemon[];
-}
-
-const usePokemons = () => {
-  const [data, setData] = useState<IPokemonsData>({});
+const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
 
   useEffect(() => {
-    const getPokemons = async () => {
+    const getData = async () => {
       setLoading(true);
       try {
-        const result = await req('getPokemons');
+        const result = await req<T>(endpoint, query);
         setData(result);
       } catch (e) {
         setError(true);
@@ -23,8 +18,8 @@ const usePokemons = () => {
         setLoading(false);
       }
     };
-    getPokemons();
-  }, []);
+    getData();
+  }, deps);
 
   return {
     data,
@@ -33,4 +28,4 @@ const usePokemons = () => {
   };
 };
 
-export default usePokemons;
+export default useData;

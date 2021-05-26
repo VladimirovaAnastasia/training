@@ -1,0 +1,203 @@
+@import '../../variables';
+
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #909090;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  background-image: url('./assets/closeIcon.svg');
+  width: 32px;
+  height: 32px;
+}
+
+.contentBlock {
+  position: relative;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  width: 796px;
+  height: 371px;
+}
+
+.pictureWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
+  box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+  border-radius: 8px 0 0 8px;
+
+  img {
+    width: 342px;
+    height: 304px;
+  }
+}
+
+.infoWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #732119 42.19%, #d93e30 100%);
+  border-radius: 0 8px 8px 0;
+  padding: 30px 20px 25px 15px;
+}
+
+.titleName {
+  color: #fdfdfd;
+  text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+}
+
+.abilitiesBlock {
+  height: 60px;
+  width: 264px;
+  background: #fdfdfd;
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 8px;
+  margin-bottom: 21px;
+  padding: 12px 28px;
+}
+
+.abilitiesText {
+  display: flex;
+  flex-direction: row;
+}
+
+.infoHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.titleInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.infoHeaderPoint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2cb07;
+  height: 41px;
+  width: 41px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.propertiesBlock {
+  display: flex;
+  flex-direction: row;
+  background: #fdfdfd;
+  width: 100%;
+  height: 78px;
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 8px;
+  margin-bottom: 21px;
+}
+
+.propertiesBlockItem {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 16px 20px;
+}
+
+.propertiesBlockItemProgress {
+  width: 167px;
+  background: #f6f7f9;
+  border-radius: 8px;
+  height: 5px;
+}
+
+.propertiesBlockItemProgressHealth {
+  background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
+  height: 100%;
+}
+
+.propertiesBlockItemProgressExperience {
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  height: 100%;
+}
+
+.statsBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.statsBlockItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0 5px 0;
+  height: 70px;
+  width: 82px;
+  background: #fdfdfd;
+  box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
+  border-radius: 8px;
+}
+
+.statsBlockItemPoint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #212121;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  margin-bottom: 6px;
+}
+
+.statsBlockItemText {
+  margin: 0;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  color: #4b4b4b;
+}
+
+.label {
+  background: #f28f16;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  height: 15px;
+  min-width: 60px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #212121;
+  padding: 0 12px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.labelWrap {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

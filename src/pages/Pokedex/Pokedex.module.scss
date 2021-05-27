@@ -18,3 +18,29 @@
   flex-wrap: wrap;
   margin-top: 53px;
 }
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  height: 50px;
+  width: 100%;
+  border-radius: 40px;
+  background: #f2f2f2;
+
+  input {
+    width: 100%;
+    margin: 0 20px;
+    border: none;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(33, 33, 33, 0.8);
+    background: #f2f2f2;
+  }
+
+  input:focus-visible {
+    border: none;
+    outline: none;
+  }
+}

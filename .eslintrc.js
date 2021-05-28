@@ -22,7 +22,7 @@ module.exports = {
     'no-console': 'off',
     'no-unused-expressions': 'off',
     'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'import/extensions': [
       'error',

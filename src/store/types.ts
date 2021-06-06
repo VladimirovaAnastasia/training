@@ -6,7 +6,7 @@ import { IInitalState } from './index';
 
 export enum PokemonsActionTypes {
   FETCH_TYPES = 'FETCH_TYPES',
-  FETCH_TYPE_RESOLVE = 'FETCH_TYPE_RESOLVE',
+  FETCH_TYPES_RESOLVE = 'FETCH_TYPES_RESOLVE',
   FETCH_TYPES_REJECT = 'FETCH_TYPES_REJECT',
 }
 
@@ -29,7 +29,7 @@ const initialState: IPokemonsInitalState = {
   },
 };
 
-export const pokemons = (state = initialState, action: ActionTypes) => {
+export const pokemonsTypes = (state = initialState, action: ActionTypes) => {
   switch (action.type) {
     case PokemonsActionTypes.FETCH_TYPES:
       return {
@@ -40,7 +40,7 @@ export const pokemons = (state = initialState, action: ActionTypes) => {
           error: null,
         },
       };
-    case PokemonsActionTypes.FETCH_TYPE_RESOLVE:
+    case PokemonsActionTypes.FETCH_TYPES_RESOLVE:
       return {
         ...state,
         types: {
@@ -63,20 +63,19 @@ export const pokemons = (state = initialState, action: ActionTypes) => {
   }
 };
 
-export const getPokemonsTypes = (state: IInitalState) => state.pokemons.types.data;
-export const getPokemonsTypesLoading = (state: IInitalState) => state.pokemons.types.isLoading;
+export const getPokemonsTypes = (state: IInitalState) => state.pokemonsTypes.types.data;
+export const getPokemonsTypesLoading = (state: IInitalState) => state.pokemonsTypes.types.isLoading;
 
 export const getTypesAction = () => {
   return async (dispatch: Dispatch<ActionTypes>) => {
     dispatch({ type: PokemonsActionTypes.FETCH_TYPES });
     try {
       const response = await req<ITypesRequest>('getOther');
-      console.log('🚀 ~ file: pokemon.ts ~ line 65 ~ return ~ response', response);
-      dispatch({ type: PokemonsActionTypes.FETCH_TYPE_RESOLVE, payload: response });
+      dispatch({ type: PokemonsActionTypes.FETCH_TYPES_RESOLVE, payload: response });
     } catch (error) {
       dispatch({ type: PokemonsActionTypes.FETCH_TYPES_REJECT, payload: error });
     }
   };
 };
 
-export default pokemons;
+export default pokemonsTypes;

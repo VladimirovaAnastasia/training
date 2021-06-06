@@ -7,7 +7,7 @@ import Heading from '../../components/Heading';
 import useData from '../../hooks/getData';
 import { IPokemonsData, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hooks/useDebounce';
-import { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/pokemons';
+import { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/types';
 
 interface IQuery {
   name?: string;
@@ -26,9 +26,7 @@ interface IQuery {
 const PokedexPage: React.FC = () => {
   const dispatch = useDispatch();
   const types = useSelector(getPokemonsTypes);
-  console.log('🚀 ~ file: index.tsx ~ line 46 ~ types', types);
   const isTypesLoading = useSelector(getPokemonsTypesLoading);
-  console.log('🚀 ~ file: index.tsx ~ line 48 ~ isTypesLoading', isTypesLoading);
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState<IQuery>({ defense_from: '80' });
   const debouncedValue = useDebounce(searchValue, 1000);

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from '../../components/PokemonCard';
 import styles from './Pokedex.module.scss';
 import Layout from '../../components/Layout';
@@ -6,6 +7,7 @@ import Heading from '../../components/Heading';
 import useData from '../../hooks/getData';
 import { IPokemonsData, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hooks/useDebounce';
+import { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/pokemons';
 
 interface IQuery {
   name?: string;
@@ -22,11 +24,20 @@ interface IQuery {
 }
 
 const PokedexPage: React.FC = () => {
+  const dispatch = useDispatch();
+  const types = useSelector(getPokemonsTypes);
+  console.log('🚀 ~ file: index.tsx ~ line 46 ~ types', types);
+  const isTypesLoading = useSelector(getPokemonsTypesLoading);
+  console.log('🚀 ~ file: index.tsx ~ line 48 ~ isTypesLoading', isTypesLoading);
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState<IQuery>({ defense_from: '80' });
   const debouncedValue = useDebounce(searchValue, 1000);
 
   const { data, isLoading, isError } = useData<IPokemonsData>('getPokemons', query, [debouncedValue]);
+
+  useEffect(() => {
+    dispatch(getTypesAction());
+  }, []);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -50,6 +61,7 @@ const PokedexPage: React.FC = () => {
         <div className={styles.search}>
           <input type="text" placeholder="Encuentra tu pokémon..." value={searchValue} onChange={handleSearchChange} />
         </div>
+        <div>{isTypesLoading ? 'Loading...' : types && types.map((item) => <div>{item}</div>)}</div>
         <div className={styles.pokemons}>
           {!isLoading &&
             data &&

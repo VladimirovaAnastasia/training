@@ -12,7 +12,7 @@ interface IGetUrlParametersWithConfig {
   body: object;
 }
 
-async function req<T>(endPoint: string, query: object): Promise<T> {
+async function req<T>(endPoint: string, query?: object): Promise<T> {
   const { method, uri, body }: IGetUrlParametersWithConfig = getUrlWithParamsConfig(endPoint, query);
 
   const options: IOptions = {

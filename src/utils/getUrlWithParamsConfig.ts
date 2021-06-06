@@ -15,7 +15,7 @@ interface IEndPoint {
   };
 }
 
-function getUrlWithParamsConfig(endpointConfig: string, params: object) {
+function getUrlWithParamsConfig(endpointConfig: string, params?: object) {
   const { method, uri }: IEndPoint = config.client.endpoint[endpointConfig as keyof typeof config.client.endpoint];
   let body = {};
 

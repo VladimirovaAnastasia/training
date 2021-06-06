@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from '../../components/PokemonCard';
 import styles from './Pokedex.module.scss';
 import Layout from '../../components/Layout';
@@ -6,17 +7,35 @@ import Heading from '../../components/Heading';
 import useData from '../../hooks/getData';
 import { IPokemonsData, PokemonsRequest } from '../../interface/pokemons';
 import useDebounce from '../../hooks/useDebounce';
+import { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/types';
 
 interface IQuery {
   name?: string;
+  attack_from?: string;
+  attack_to?: string;
+  exp_from?: string;
+  exp_to?: string;
+  hp_from?: string;
+  hp_to?: string;
+  defense_from?: string;
+  defense_to?: string;
+  speed_from?: string;
+  speed_to?: string;
 }
 
 const PokedexPage: React.FC = () => {
+  const dispatch = useDispatch();
+  const types = useSelector(getPokemonsTypes);
+  const isTypesLoading = useSelector(getPokemonsTypesLoading);
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState<IQuery>({});
+  const [query, setQuery] = useState<IQuery>({ defense_from: '80' });
   const debouncedValue = useDebounce(searchValue, 1000);
 
   const { data, isLoading, isError } = useData<IPokemonsData>('getPokemons', query, [debouncedValue]);
+
+  useEffect(() => {
+    dispatch(getTypesAction());
+  }, []);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -40,6 +59,7 @@ const PokedexPage: React.FC = () => {
         <div className={styles.search}>
           <input type="text" placeholder="Encuentra tu pokémon..." value={searchValue} onChange={handleSearchChange} />
         </div>
+        <div>{isTypesLoading ? 'Loading...' : types && types.map((item) => <div>{item}</div>)}</div>
         <div className={styles.pokemons}>
           {!isLoading &&
             data &&

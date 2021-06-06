@@ -15,6 +15,8 @@ module.exports = {
   rules: {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
+    'global-require': 'off',
+    'no-use-before-define': 'off',
     camelcase: 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
@@ -22,7 +24,7 @@ module.exports = {
     'no-console': 'off',
     'no-unused-expressions': 'off',
     'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'import/extensions': [
       'error',

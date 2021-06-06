@@ -30,7 +30,6 @@ const Pokemon: React.FC<PokemonProps> = ({ id }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(data?.name);
   return (
     <div className={styles.root}>
       <div className={styles.contentBlock}>

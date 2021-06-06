@@ -1,4 +1,4 @@
-import { toCapitalizeFirstLe } from './example';
+import toCapitalizeFirstLe from './example';
 
 describe('toCapitalizeFirstLe', () => {
   test('Должна принимать строку c пробелом и возвращать строку c пробелом', () => {

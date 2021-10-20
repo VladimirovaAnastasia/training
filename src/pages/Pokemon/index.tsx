@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Pokemon.module.scss';
 import Heading from '../../components/Heading';
+import useData from '../../hooks/getData';
+import { PokemonsRequest } from '../../interface/pokemons';
 
 export interface PokemonProps {
   id?: string | number;
@@ -22,6 +24,13 @@ const mockPokemon = {
 };
 
 const Pokemon: React.FC<PokemonProps> = ({ id }) => {
+  const { data, isLoading } = useData<PokemonsRequest>('getPokemon', { id });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(data?.name);
   return (
     <div className={styles.root}>
       <div className={styles.contentBlock}>

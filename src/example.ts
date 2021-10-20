@@ -15,7 +15,6 @@ const myHometask: IMyHometask = {
   simeArray: ['string one', 'string two', 42],
   withData: [{ howIDoIt: 'I Do It Wel', simeArray: ['string one', 23] }],
 };
-console.log(myHometask);
 
 interface MyArray<T> {
   [N: number]: T;
@@ -25,4 +24,17 @@ const arr: MyArray<number> = [1, 2, 3, 4, 5];
 const result = arr.reduce((sum, current) => {
   return sum + current;
 }, 0);
-console.log(result);
+
+const toCapitalizeFirstLe = (str: string): string => {
+  return (
+    str &&
+    str[0].toUpperCase() +
+      str
+        .slice(1)
+        .split('')
+        .map((item) => item.toLowerCase())
+        .join('')
+  );
+};
+
+export default toCapitalizeFirstLe;
